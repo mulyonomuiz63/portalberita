@@ -16,7 +16,7 @@
                             @if($i>$setting_data->news_ticker_total)
                             @break
                             @endif
-                            <li><a href="{{ route('news_detail',$item->id) }}">{{ $item->post_title }}</a></li>
+                            <li><a href="{{ route('news_detail',$item->slug) }}">{{ $item->post_title }}</a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -50,7 +50,7 @@
                                 <div class="category">
                                     <span class="badge bg-success badge-sm">{{ $item->rSubCategory->sub_category_name }}</span>
                                 </div>
-                                <h2><a href="{{ route('news_detail',$item->id) }}">{{ $item->post_title }}</a></h2>
+                                <h2><a href="{{ route('news_detail',$item->slug) }}">{{ $item->post_title }}</a></h2>
                                 <div class="date-user">
                                     <div class="user">
                                         @if($item->author_id==0)
@@ -97,7 +97,7 @@
                                 <div class="category">
                                     <span class="badge bg-success badge-sm">{{ $item->rSubCategory->sub_category_name }}</span>
                                 </div>
-                                <h2><a href="{{ route('news_detail',$item->id) }}">{{ $item->post_title }}</a></h2>
+                                <h2><a href="{{ route('news_detail',$item->slug) }}">{{ $item->post_title }}</a></h2>
                                 <div class="date-user">
                                     <div class="user">
                                         @if($item->author_id==0)
@@ -222,7 +222,7 @@
                                     <div class="category">
                                         <span class="badge bg-success">{{ $item->sub_category_name }}</span>
                                     </div>
-                                    <h3><a href="{{ route('news_detail',$single->id) }}">{{ $single->post_title }}</a></h3>
+                                    <h3><a href="{{ route('news_detail',$single->slug) }}">{{ $single->post_title }}</a></h3>
                                     <div class="date-user">
                                         <div class="user">
                                             @if($single->author_id==0)
@@ -269,7 +269,7 @@
                                             <div class="category">
                                                 <span class="badge bg-success">{{ $item->sub_category_name }}</span>
                                             </div>
-                                            <h2><a href="{{ route('news_detail',$single->id) }}">{{ $single->post_title }}</a></h2>
+                                            <h2><a href="{{ route('news_detail',$single->slug) }}">{{ $single->post_title }}</a></h2>
                                             <div class="date-user">
                                                 <div class="user">
                                                     @if($single->author_id==0)

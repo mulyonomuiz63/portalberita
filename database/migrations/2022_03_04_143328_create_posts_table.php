@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('sub_category_id');
             $table->string('post_title');
+            $table->text('post_title');
             $table->text('post_detail');
             $table->string('post_photo');
             $table->integer('visitors');

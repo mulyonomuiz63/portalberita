@@ -24,7 +24,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('path.public', function () {
+            return base_path();
+        });
     }
 
     /**
@@ -37,15 +39,15 @@ class AppServiceProvider extends ServiceProvider
 
         Paginator::useBootstrap();
 
-        $top_ad_data = TopAdvertisement::where('id',1)->first();
-        $sidebar_top_ad = SidebarAdvertisement::where('sidebar_ad_location','Top')->get();
-        $sidebar_bottom_ad = SidebarAdvertisement::where('sidebar_ad_location','Bottom')->get();
-        $categories = Category::with('rSubCategory')->where('show_on_menu','Show')->orderBy('category_order','asc')->get();
-                
+        $top_ad_data = TopAdvertisement::where('id', 1)->first();
+        $sidebar_top_ad = SidebarAdvertisement::where('sidebar_ad_location', 'Top')->get();
+        $sidebar_bottom_ad = SidebarAdvertisement::where('sidebar_ad_location', 'Bottom')->get();
+        $categories = Category::with('rSubCategory')->where('show_on_menu', 'Show')->orderBy('category_order', 'asc')->get();
+
         $social_item_data = SocialItem::get();
-        $setting_data = Setting::where('id',1)->first();
+        $setting_data = Setting::where('id', 1)->first();
         $language_data = Language::get();
-        $default_lang_data = Language::where('is_default','Yes')->first();
+        $default_lang_data = Language::where('is_default', 'Yes')->first();
 
         view()->share('global_top_ad_data', $top_ad_data);
         view()->share('global_sidebar_top_ad', $sidebar_top_ad);

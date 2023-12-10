@@ -44,6 +44,7 @@ use App\Http\Controllers\Author\AuthorPostController;
 
 
 /* Front End */
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/language/switch', [LanguageController::class, 'switch_language'])->name('front_language');
 Route::get('/subcategory-by-category/{id}', [HomeController::class, 'get_subcategory_by_category'])->name('subcategory-by-category');
@@ -55,7 +56,7 @@ Route::get('/faq', [FaqController::class, 'index'])->name('faq');
 Route::get('/terms-and-conditions', [TermsController::class, 'index'])->name('terms');
 Route::get('/privacy-policy', [PrivacyController::class, 'index'])->name('privacy');
 Route::get('/disclaimer', [DisclaimerController::class, 'index'])->name('disclaimer');
-Route::get('/news-detail/{id}', [PostController::class, 'detail'])->name('news_detail');
+Route::get('/news-detail/{slug}', [PostController::class, 'detail'])->name('news_detail');
 Route::get('/category/{id}', [SubCategoryController::class, 'index'])->name('category');
 Route::get('/photo-gallery', [PhotoController::class, 'index'])->name('photo_gallery');
 Route::get('/video-gallery', [VideoController::class, 'index'])->name('video_gallery');

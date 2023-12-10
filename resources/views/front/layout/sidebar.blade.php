@@ -132,7 +132,7 @@ $current_language_id = \App\Models\Language::where('short_name',$current_short_n
                             <div class="category">
                                 <span class="badge bg-success">{{ $item->rSubCategory->sub_category_name }}</span>
                             </div>
-                            <h2><a href="{{ route('news_detail',$item->id) }}">{{ $item->post_title }}</a></h2>
+                            <h2><a href="{{ route('news_detail',$item->slug) }}">{{ $item->post_title }}</a></h2>
                             <div class="date-user">
                                 <div class="user">
                                     @if($item->author_id==0)
@@ -174,7 +174,7 @@ $current_language_id = \App\Models\Language::where('short_name',$current_short_n
                             <div class="category">
                                 <span class="badge bg-success">{{ $item->rSubCategory->sub_category_name }}</span>
                             </div>
-                            <h2><a href="{{ route('news_detail',$item->id) }}">{{ $item->post_title }}</a></h2>
+                            <h2><a href="{{ route('news_detail',$item->slug) }}">{{ $item->post_title }}</a></h2>
                             <div class="date-user">
                                 <div class="user">
                                     @if($item->author_id==0)

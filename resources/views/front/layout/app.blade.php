@@ -17,9 +17,19 @@ $current_short_name = session()->get('session_short_name');
 
     <meta name="description" content="">
     <title>MTs Darul Hikmah</title>
-
+    @if(isset($post_detail))
+    <meta property="og:title" content="MTs Darul Hikmah" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ route('news_detail',$post_detail->slug) }}" />
+    <meta property="og:image" content="{{ asset('uploads/'.$post_detail->post_photo) }}" />
+    <meta property="og:description" content="{{ $post_detail->post_title }}" />
+    @else
+    <meta property="og:title" content="MTS Terpadu Darul Hikmah" />
+    <meta property="og:description" content="Sekolah adalah lembaga pendidikan yang menyelenggarakan jenjang pendidikan formal, baik dalam bentuk sekolah negeri, yakni dikelola oleh pemerintah maupun swasta. Dalam melakukan kegiatan belajar-mengajar, sekolah bertujuan untuk mendidik para siswa di bawah pengawasan guru." />
+    <meta property="og:url" content="{{ route('home') }}" />
+    <meta property="og:image" content="{{ asset('uploads/logo.png') }}" />
+    @endif
     <link rel="icon" type="image/png" href="{{ asset('uploads/'.$global_setting_data->favicon) }}">
-
     @include('front.layout.styles')
 
     @include('front.layout.scripts')
@@ -111,6 +121,14 @@ $current_short_name = session()->get('session_short_name');
         .nav-pills .nav-link.active,
         .page-item.active .page-link {
             color: #fff !important;
+        }
+
+        #disqus_thread>iframe[src*="ads-iframe"] {
+            display: none !important
+        }
+
+        #disqus_thread>iframe[sandbox] {
+            display: none !important
         }
     </style>
 

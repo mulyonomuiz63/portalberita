@@ -27,7 +27,7 @@
                         @if(count($all_posts))
                         @foreach($all_posts as $item)
                         @if(!in_array($item->id,$all_post_ids))
-                            @continue
+                        @continue
                         @endif
                         <div class="col-lg-6 col-md-12">
                             <div class="category-page-post-item">
@@ -37,17 +37,17 @@
                                 <div class="category">
                                     <span class="badge bg-success">{{ $item->rSubCategory->sub_category_name }}</span>
                                 </div>
-                                <h3><a href="{{ route('news_detail',$item->id) }}">{{ $item->post_title }}</a></h3>
+                                <h3><a href="{{ route('news_detail',$item->slug) }}">{{ $item->post_title }}</a></h3>
                                 <div class="date-user">
                                     <div class="user">
                                         @if($item->author_id==0)
-                                            @php
-                                            $user_data = \App\Models\Admin::where('id',$item->admin_id)->first();
-                                            @endphp
+                                        @php
+                                        $user_data = \App\Models\Admin::where('id',$item->admin_id)->first();
+                                        @endphp
                                         @else
-                                            @php
-                                            $user_data = \App\Models\Author::where('id',$item->author_id)->first();
-                                            @endphp
+                                        @php
+                                        $user_data = \App\Models\Author::where('id',$item->author_id)->first();
+                                        @endphp
                                         @endif
                                         <a href="javascript:void;">{{ $user_data->name }}</a>
                                     </div>

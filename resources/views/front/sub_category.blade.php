@@ -20,12 +20,12 @@
 <div class="page-content">
     <div class="container">
         <div class="row">
-            
+
 
 
 
             <div class="col-lg-8 col-md-6">
-                        
+
                 <div class="category-page">
                     <div class="row">
 
@@ -40,17 +40,17 @@
                                 <div class="category">
                                     <span class="badge bg-success">{{ $sub_category_data->sub_category_name }}</span>
                                 </div>
-                                <h3><a href="{{ route('news_detail',$item->id) }}">{{ $item->post_title }}</a></h3>
+                                <h3><a href="{{ route('news_detail',$item->slug) }}">{{ $item->post_title }}</a></h3>
                                 <div class="date-user">
                                     <div class="user">
                                         @if($item->author_id==0)
-                                            @php
-                                            $user_data = \App\Models\Admin::where('id',$item->admin_id)->first();
-                                            @endphp
+                                        @php
+                                        $user_data = \App\Models\Admin::where('id',$item->admin_id)->first();
+                                        @endphp
                                         @else
-                                            @php
-                                            $user_data = \App\Models\Author::where('id',$item->author_id)->first();
-                                            @endphp
+                                        @php
+                                        $user_data = \App\Models\Author::where('id',$item->author_id)->first();
+                                        @endphp
                                         @endif
                                         <a href="javascript:void;">{{ $user_data->name }}</a>
                                     </div>
@@ -79,9 +79,9 @@
 
             </div>
             <div class="col-lg-4 col-md-6 sidebar-col">
-               
+
                 @include('front.layout.sidebar')
-               
+
             </div>
 
 
